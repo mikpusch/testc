@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns="htpp://www.w3.org/1999/xhtml">
+<head>
+	<title> Title </title>
+	<link href="css/bootstrap.css" rel="stylesheet"></link>
+	<script src="js/jquery.js"></script>
+	<script src="js/bootstrap.js"></script>
+	<script src="js/angular.js"></script>
+	<script src="js/angular-route.js"></script>
+	<script src="js/app.js"></script>
+	<script>
+  function showAlert() {
+    alert ("Hello world!");
+  }
+  </script>
+
+</head>
+
+<body ng-app="IdeApp">
+	<div class="container" ng-controller="IdeController">
+		<table class="table table-striped">
+			<thead>
+			  <tr>
+			   <th>
+			    <input ng-model="dev.firstName" class="form-control" />
+			   </th>
+			   <th>
+			    <input ng-model="dev.lastName" class="form-control" />
+			   <th>
+			   <th>
+				   <button ng-click="add(dev)" class="btn btn-success pull-right">
+						<span class="glyphicon glyphicon-plus"></span>
+					</button>
+			   </th>
+			  </tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="developer in developers">
+			    	<td> {{developer.firstName}}</td>
+					<td> {{developer.lastName}}</td>
+	<!--					<td> showindex($index) {{MyIndex}}</td>
+	-->
+					<td><button ng-click="select($index)" class="btn btn-warning pull-right">
+						<span class="glyphicon glyphicon-pencil"></span>
+						</button>					
+					</td>
+
+					<td><button ng-click="remove($index)" class="btn btn-danger pull-right">
+						<span class="glyphicon glyphicon-remove"></span>
+						</button>					
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<div ng-show ="applications.length">
+			<h2> Applications</h2>
+			<ul>
+				<li ng-repeat = "app in applications" >
+				{{app.name}} 
+				</li>
+			</ul>
+		</div>
+		<br>
+		<table class="table table-striped">
+		  <thead>
+			<tr>
+				<th>
+					<input ng-model="website.name" class = "form-control"/>
+				</th>
+				<th>
+					<button ng-click=addsite(website) class="btn btn-success">
+						+
+					</button>
+				</th>
+			</tr>
+		  </thead>
+		  <tbody>
+		    <tr ng-repeat="website in websites">
+			  <td>  {{website.name}}  </td>
+			  <td>
+			     <button ng-click="remove(website._id)" class="btn btn-danger">
+				   &times;
+				 </button>
+				 
+			  </td>
+			</tr>
+		    
+		  </tbody>
+
+		</table>
+		<br>
+		{{applications}}
+		<br>
+		{{developers[0].firstName}}
+		<br>
+		{{developers[0].firstName}}
+		<br>
+onclick="showAlert()" 
+		
+	</div>
+
+</body>
+</html>
